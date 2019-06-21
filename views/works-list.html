@@ -1,0 +1,38 @@
+<%- include("header.html")%>
+    <link rel="stylesheet" href="/stylesheets/web/work-list.css">
+    <div id="app">
+        <div class="bg">
+            <img class="block w100" v-if="banner" :src="banner" alt="">
+        </div>
+        <div class="init">
+            <h2>案例展示</h2>
+            <p>
+                <span>BITONE从成立至今，创作了众多视觉影像和营销解决方案,</span>
+                <span>被全球汽车品牌厂商、数字产品企业广泛应用于大型车展、产品上市发布会、TVC、</span>
+                <span>产品卖点宣传、线下虚拟影像互动、移动端互动等营销渠道。</span>
+            </p>
+        </div>
+        <div class="option">
+            <div class="all">
+                <a href="javascript:" :class="{active:type == 0}" @click="handleAjaxType($event,0)">全部</a>
+            </div>
+            <div class="detail">
+                <a href="javascript:" :class="{active:type == item.value}" :style="{width: Math.floor(100/options.length)-0.6+'%'}" v-for="(item,index) in options" :key="index" :data-type="item.link" @click="handleAjaxType($event,item.value)">
+                    <i :class="['iconfont',item.icon]"></i>
+                    <span>{{item.text}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="works">
+            <a :href="'/app/work/'+item._id" :class="['work',{active:item.isLong}]" v-for="(item,index) in nowList" :key="index" target="_blank">
+                <img :src="item.cover" alt="">
+                <p>
+                    <span class="text-hide-1">{{item.title}}</span>
+                </p>
+            </a>
+            <a class="ajax-more" href="javascript:" @click="bindLodingMore">加载更多</a>
+        </div>
+    </div>
+    <script src="/javascripts/web/works-list.js"></script>
+    <!-- <script src="/build/react-work-list.js"></script> -->
+    <%- include("footer.html")%>

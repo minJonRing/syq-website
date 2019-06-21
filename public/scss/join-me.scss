@@ -1,0 +1,90 @@
+#app {
+    .init {
+        padding: calc(3% + 70px) 0 3%;
+        text-align: center;
+        h2 {
+            font-size: 34px;
+            font-weight: 700px;
+        }
+    }
+    .core {
+        padding: 3% 6%;
+        // width: 1200px;
+        margin: 0 auto;
+        h5 {
+            font-size: 28px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 2.2;
+        }
+    }
+    .core-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        // width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 50px;
+        .core-item{ 
+            position: relative;
+            width: 33.3333%;
+            height: 300px;
+            background-color: #ddd;
+            overflow: hidden;
+            cursor: pointer;
+            .shadow-name {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0,0,0,.3);
+                opacity: 1;
+                transition-duration: 600ms;
+                span {
+                    width: 90%;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 22px;
+                    line-height: 2;
+                }
+            }
+            .shadow-text {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0,0,0,.7);
+                filter: blur(5px);
+                opacity: 0;
+                transition-duration: 600ms;
+                span {
+                    width: 90%;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 16px;
+                    line-height: 2;
+                }
+            }
+            &:hover {
+                .shadow-name{
+                    opacity: 0;
+                }
+                .shadow-text{
+                    opacity: 1;
+                    filter: none;
+                }
+            } 
+        }
+    }
+}

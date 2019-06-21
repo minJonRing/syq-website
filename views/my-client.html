@@ -1,0 +1,23 @@
+<%- include("header.html")%>
+    <link rel="stylesheet" href="/stylesheets/web/my-client.css">
+    <div id="scss">
+        <link v-if="isPhone" rel="stylesheet" href="/stylesheets/phone/my-client.css">
+    </div>
+    <div id="app">
+        <img class="block w100" v-if="banner" :src="banner" alt="">
+        <div class="init">
+            <h2>我的客户</h2>
+            <p>
+                <span>BITONE服务的客户遍布全球,目前已服务超过60家公司，300多款产品。</span>
+                <span>BITONE服务的客户遍布全球</span>
+            </p>
+        </div>
+        <div class="brands">
+            <div class="brand" v-for="(item,index) in brands" :key="index">
+                <p><img :src="item" alt=""></p>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/web/my-client.js"></script>
+
+    <%- include("footer.html")%>

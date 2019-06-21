@@ -1,0 +1,54 @@
+@charset "UTF-8";
+#app {
+  /* brands 商标 */
+}
+
+#app .init {
+  padding: 3% 0 5%;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+#app .init h2 {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+#app .init p {
+  padding-top: 1%;
+  font-size: 14px;
+}
+
+#app .init span {
+  display: inline-block;
+  width: 100%;
+  line-height: 1.8;
+}
+
+#app .brands {
+  font-size: 0;
+  border-left: 1px #ddd solid;
+  border-bottom: 1px #ddd solid;
+}
+
+#app .brands .brand {
+  display: inline-block;
+  width: 12.5%;
+  border-top: 1px #ddd solid;
+  border-right: 1px #ddd solid;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#app .brands .brand p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50% 0;
+}
+
+#app .brands .brand p img {
+  position: absolute;
+  width: 80%;
+}

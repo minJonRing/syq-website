@@ -1,0 +1,45 @@
+<%- include("./header.html")%>
+    <link rel="stylesheet" href="/stylesheets/web/news-info.css">
+    <div id="app">
+        <div class="news-box">
+            <h2>{{title}}</h2>
+            <div class="news-info">
+                <span>{{time}}</span>
+                <span>/</span>
+                <span>{{type}}</span>
+            </div>
+            <div class="news-cont" v-html="cont">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                nav: set_config.header,
+                title: "",
+                type: "",
+                time: "",
+                cont: ""
+            },
+            mounted() {
+                let url = window.location.href.replace(/.+\//g, "");
+                $.ajax({
+                    url: "/app/informa/edit",
+                    type: "get",
+                    data: {
+                        id: url
+                    },
+                    success: (res) => {
+                        this.title = res.data.title;
+                        this.cover = res.data.cover;
+                        this.time = res.data.createtime.replace(/(T).+/g, "");
+                        this.type = res.data.type
+                        this.cont = res.data.cont
+                    }
+                })
+            }
+        })
+    </script>
+    <%- include("./footer.html")%>

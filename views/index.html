@@ -1,0 +1,94 @@
+<%- include("./header.html") %>
+    <link rel="stylesheet" href="/stylesheets/web/index.css">
+    <link rel="stylesheet" href="/stylesheets/table.css">
+    <div id="app">
+        <div class="video">
+            <video autoplay loop muted>
+                <source :src="video" type="video/mp4" />
+            </video>
+            <div class="video-txt">
+                <div class="video-txt-box">
+                    <h2 v-text="year+' SHOWREEL'"></h2>
+                    <!-- <p>SINQ专注于数字视屏领域的专业服务，运用cg，实拍，三维等数字技术，创造出属于您的视屏专属服务。未来我们坚持创新开发，秉持匠心精神，追求完美服务。让视屏广告舞动未来，创造无限价值</p> -->
+                    <p>思影奇于2015年创立新型视频形态，以定制环球天幕灯光秀、三维创意产品动画及影视广告TVC为核心，致力于打造视频领域一站式的全方位服务。</p>
+                    <a href="javascript:" @click="handleShowVideo">PLAY VIDEO
+                        <span class="sp1"></span><span class="sp2"></span><span class="sp3"></span><span class="sp4"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="init">
+            <div class="init-box">
+                <div class="imgbox inline-block">
+                    <img class="block w100" src="/images/web/logo1.png" alt="">
+                </div>
+                <div class="init-txt">
+                    <p>一站式可视化服务供应商。 </p>
+                    <p> 专注于企业视屏广告服务，结合cg,实拍，三维等技术，</p>
+                    <p>为客户定制企业宣传片，三维产品动画，发布会，电视广告等全媒体营销影像内容</p>
+                </div>
+            </div>
+        </div>
+        <div class="case">
+            <ul class="flex">
+                <li class="overflow transition600 " v-for="(item,index) in caseList" :key="index">
+                    <a class="nav" :href="item.link" :style="{'background-image':'url('+item.img+')'}">
+                        <p>
+                            <i class="iconfont icon-icon-"></i>
+                            <span>{{item.txt}}</span>
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="course" ref="course">
+            <img :src="course" alt="" v-if="course">
+        </div>
+        <div class="news">
+            <a href="" v-for="(item,index) in newsList">
+                <img class="block w100" :src="item.cover" alt="">
+                <div class="news-info">
+                    <p>{{item.title}}</p>
+                    <time>{{item.createtime.replace(/(T).*/g,'')}}</time>
+                </div>
+                <div class="news-shade">
+                    <i class="transition600 iconfont icon-compass"></i>
+                </div>
+            </a>
+        </div>
+        <div class="works">
+            <h2>作品展示</h2>
+        </div>
+        <div class="works-list" v-for="(item,index) in worksList" :key="index">
+            <a :href="'/app/work/'+i._id" :class="[{active:i.isLong},i.cla || '']" :style="{height:i.h?i.h:''}" v-for="(i,j) in item" :key="j">
+                <div class="works-item-img"><img :src="i.cover" alt="作品"></div>
+                <p class="works-shade">
+                    <span class="text-hide-1">{{i.title}}</span>
+                </p>
+            </a>
+        </div>
+        <div class="my-client">
+            <h2><a href="app/client" class="color-333 index-a">我们的客户</a></h2>
+            <div class="my-client-box" v-if="client">
+                <div class="my-client-list1">
+                    <div v-for="(item,index) in client" :key="index">
+                        <img :src="item.img" alt="">
+                    </div>
+                </div>
+                <div class="my-client-list2">
+                    <div v-for="(item,index) in client" :key="index">
+                        <img :src="item.img" alt="">
+                    </div>
+                </div>
+                <div class="my-client-none"><img :src="client[0].img" alt=""></div>
+            </div>
+        </div>
+        <div :class="['shade',{'active':isShowShade}]" v-if="isShowShade" @click.stop="handleShowVideo">
+            <video autoplay controls @click.stop>
+                <source :src="video" type="video/mp4"></source>
+            </video>
+        </div>
+    </div>
+
+    <script src="/javascripts/web/index.js"></script>
+    <%- include("./footer.html") %>

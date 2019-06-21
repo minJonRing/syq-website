@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/icon/iconfont.css">
+    <link rel="stylesheet" href="/stylesheets/adapt.css">
+    <script src="/javascripts/vue.js"></script>
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    <script src="/web.config.js"></script>
+    <script src="/set.config.js"></script>
+    <script src="/javascripts/rem.js"></script>
+</head>
+
+<body>
+    <!-- <header id="head" class="flex flex-mid flex-center-3">
+        <div class="logo flex-1">
+            <div class="img-box">
+                <img class="block h100" src="/images/web/logo.png" alt="">
+            </div>
+        </div>
+        <div class="nav flex-0 h100">
+            <ul class="oneUl flex flex-mid flex-center-2 h100">
+                <li class="oneLi relative h100 transition600" v-for="(item,index) in nav" :key="index">
+                    <span class="navBar transition600"></span>
+                    <a class="oneNav flex flex-mid wh100" :href="item.link"><span>{{item.txt}}</span></a>
+                    <ul class="towUl overflow" v-if="item.child">
+                        <li class="towLi transition600" v-for="(i,j) in item.child" :key="j">
+                            <a class="towNav flex-center-1" :href="i.link"><span>{{i.txt}}</span></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header> -->
+    <div id="css">
+        <link v-if="isPhone" rel="stylesheet" href="/stylesheets/phone/header.css">
+    </div>
+    <div id="head">
+        <!-- <link v-if="isPhone" rel="stylesheet" href="/stylesheets/phone/header.css"> -->
+        <!-- <div class="tqr-logo">
+            <img class="block" src="/images/web/logo.png" alt="">
+        </div>
+        <div class="tqr-nav-box text-center">
+            <i class="tqr-nav-phone iconfont icon-mulu" @click="isShow = !isShow"></i>
+            <div :class="['tqr-nav-list',{'tqr-nav-list-show':isShow}]">
+                <div class="tqr-nav-item" v-for="(item,index) in nav" :key="index">
+                    <a class="tqr-nav-item-txt" :href="item.link">{{item.txt}}</a>
+                    <input type="checkbox" v-if="item.child" class="tqr-nav-item-check">
+                    <ul class="tqr-nav-item-list" v-if="item.child">
+                        <li v-for="(i,j) in item.child" :key="j">
+                            <a class="tqr-nav-child flex-center-1" :href="i.link">
+                                {{i.txt}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="/build/react-header.js"></script>
+    <script>
+        function banner(fn){
+            $.ajax({
+                url:"/app/get/banner",
+                type:"GET",
+                success:(res)=>{
+                    let db = JSON.parse(res.data[0].cont);
+                    console.log(db)
+                    fn?fn(db):"";
+                }
+            })
+        }
+        var tqr = new Vue({
+            el: "#css",
+            data: {
+                nav: set_config.header,
+                isPhone: /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ? 1 : 0,
+                isShow: false,
+            },
+            mounted() {
+
+            },
+        })
+        let url = window.location.href.replace(/.+\//g, "");
+        if (!url) {
+            let el = document.querySelector(".tqr-header");
+            el.classList.add("active");
+            window.onscroll = (e) => {
+                if (window.scrollY > 200) {
+                    el.classList.remove("active");
+                } else {
+                    el.classList.add("active");
+                }
+            }
+        }
+    </script>

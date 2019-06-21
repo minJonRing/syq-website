@@ -1,0 +1,33 @@
+<%- include("./header.html")%>
+    <link rel="stylesheet" href="/stylesheets/web/join-me.css">
+    <div id="scss">
+        <link v-if="isPhone" rel="stylesheet" href="/stylesheets/phone/join-we.css">
+    </div>
+    <div id="app">
+        <div class="init">
+            <h2>加入我们</h2>
+        </div>
+        <img class="block w100" v-if="banner" :src="banner" alt="">
+        <div class="core">
+            <h5>核心团队</h5>
+            <p>营销部：发掘品牌内涵，切合消费者需求，针对不同客户定制营销战略。</p>
+            <p>策划部：以全案策划为载体，达到提升品牌价值的目的，是实现创意的坚实基础。</p>
+            <p>三维渲染：以“视觉”作为沟通和表现方式，通过精湛的渲染展示独具风格的人物及场景。</p>
+            <p>后期部：制作特技镜头，完善镜头衔接，合成画面音效，把控动画整体节奏，打造出更加精细的视觉效果。</p>
+            <p>影视部：结合表演艺术本身，通过全方位、多角度的拍摄，诠释大气、震撼的影视宣传片。</p>
+            <p>推广部：整合品牌优势，利用产品动画的业务营销更好地投放市场，帮助企业达到有效传播。</p>
+        </div>
+        <div class="core-list">
+            <div class="core-item" v-for="(item,index) in core" ::key="index">
+                <img src="" alt="">
+                <div class="shadow-name">
+                    <span>{{item.name}}</span>
+                </div>
+                <div class="shadow-text">
+                    <span>{{item.text}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/web/join-we.js"></script>
+    <%- include("./footer.html")%>
