@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="app">
-        <div class="btn">
-            <!-- <img class="bg" src="/h5/smq1/bg.png" alt="">
+        <!-- <div class="btn">
+            <img class="bg" src="/h5/smq1/bg.png" alt="">
             <p class="a">
                 <img class="bt" src="/h5/smq1/btn.png" alt="">
             </p>
@@ -19,12 +19,13 @@
         <div class="video-box">
             <video class="video" src="http://www.hzsinq.com/h5/1.mp4"></video>
         </div> -->
+        <p class="p1">1</p>
     </div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 <script>
     //wx2df0a9fe18f3cb02 fb964c9eeaa0895370ddeef2e59fb9d7
-
+let el = $(".p1");
 $.ajax({
     url:"/app/wx/token",
     type:"GET",
@@ -73,9 +74,11 @@ $.ajax({
                 success: function () {
                     // 用户点击了分享后执行的回调函数
                     alert("success")
+                    el.text("2")
                 },
                 fail: function (res) {
                     alert(JSON.stringify(res));
+                    el.text("3")
                 }
             });
             wx.onMenuShareTimeline({
@@ -84,9 +87,11 @@ $.ajax({
                 imgUrl: 'http://www.ojoojooo.com/images/web/code.png', // 分
                 success: function () {
                 // 用户点击了分享后执行的回调函数
+                    el.text("2")
                 },
                 fail: function (res) {
                     alert(JSON.stringify(res));
+                    el.text("3")
                 }
             });
             // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
