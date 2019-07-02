@@ -5,6 +5,8 @@ const sha1 = require("sha1");
 
 let token = "", time = Date.now();
 router.get("/app/wx/token",async(ctx, next)=>{
+    let rootUrl = ctx.req.headers.referer;
+    ctx.body = {};
     let now = Date.now();
     if(!token || (now - time) > 7000*1000){
         token = await new Promise((resolve,reject)=>{
@@ -28,10 +30,10 @@ router.get("/app/wx/token",async(ctx, next)=>{
         })
     })
     let nonceStr = sj();
-    let str = `jsapi_ticket=${data}&noncestr=${nonceStr}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
+    let str = `jsapi_ticket=${data}&noncestr=${nonceStr}&timestamp=${now}&url=${rootUrl}`
     let shaObjs = sha1(str);
     ctx.body = {
-        str:ctx.originalUrl,
+        str:ctx,
         appId:"wx2df0a9fe18f3cb02",
         timestamp:now,
         nonceStr:nonceStr,
