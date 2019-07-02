@@ -11,8 +11,8 @@ const ejs = require('ejs')
 const mongoose = require("mongoose")
 const session = require("koa-session-redis");
 const staticCache = require('koa-static-cache')
+const range = require('koa-range')
 
-// const MongooseStore = require("koa-session-mongoose");
 
 
 let db = mongoose.connect("mongodb://localhost:27017/syq");
@@ -45,6 +45,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
+app.use(range)
 app.use(require('koa-static')(__dirname + '/public'))
 // app.use(staticCache(path.join(__dirname, '/public'), {
 //   maxAge: 365 * 24 * 60 * 60

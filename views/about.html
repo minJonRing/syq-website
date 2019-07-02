@@ -3,10 +3,10 @@
     <div class="app" id="app">
         <img class="block w100" :src="banner" v-if="banner" alt="">
         <div class="head text-center">
-            <h2>关于涂涂图帅哥</h2>
+            <h2>关于SinQ</h2>
             <p class="info">
-                比特视界(北京)科技有限公司（英文简称：BITONE），全球顶级的可视化解决方案供应商。
-                <br/> 自2009年成立以来，已在汽车虚拟影像领域深耕10年，成为汽车行业备受认可的虚拟影像品牌。
+                <span>杭州思影奇数字科技有限公司（英文简称：SinQ）</span>
+                <span>创立新型视频形态，以打造影视广告TVC和三维创意产品动画为核心，致力于打造视频领域一站式的全方位服务</span>
             </p>
             <div class="about-nav">
                 <a href="javascript:" :class="{active:index == navIndex}" v-for="(item ,index) in nav" :key="index" @click="handleChangeNav($event,index)">{{item.txt}}</a>
