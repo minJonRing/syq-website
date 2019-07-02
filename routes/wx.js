@@ -2,7 +2,7 @@ const router = require('koa-router')()
 const request = require("request");
 
 
-let token,time = Date.now();
+let token = "",time = Date.now();
 router.get("/app/wx/token",async(ctx, next)=>{
     let now = Date.now();
     if(!token || (now - time) > 7000*1000){
@@ -23,7 +23,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    ctx.body = {token:token};
+    ctx.body = {msg:token};
 })
 
 module.exports = router;
