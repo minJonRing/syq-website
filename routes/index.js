@@ -78,6 +78,13 @@ router.get('/app/isa', async (ctx, next) => {
     title: 'app'
   })
 })
+// h5
+// 手机测试
+router.get('/app/h5', async (ctx, next) => {
+  await ctx.render('h5/smq1', {
+    title: 'app'
+  })
+})
 // admin 后端接口
 // 后端登录界面
 router.get("/app/admin",async (ctx,next) => {
