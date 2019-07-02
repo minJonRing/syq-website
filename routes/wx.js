@@ -23,7 +23,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    ctx.body = {token:token,data:data};
+    ctx.body = {token:token};
 })
 
 module.exports = router;
