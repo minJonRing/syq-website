@@ -20,6 +20,8 @@ router.get("/app/wx/token",async(ctx, next)=>{
         request("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+token+"&type=jsapi",async(err,res,body)=>{
             if(!err){
                 resolve(res)
+            }else{
+                reject(err)
             }
         })
     })
