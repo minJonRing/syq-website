@@ -12,7 +12,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
         })
     })
 
-    const data = new Promise((resolve,reject)=>{
+    const data = await new Promise((resolve,reject)=>{
         request("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+token+"&type=jsapi",async(err,res,body)=>{
             if(!err){
                 resolve(res)
