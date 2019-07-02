@@ -31,6 +31,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
     let str = `jsapi_ticket=${token}&noncestr=${nonceStr}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
     let shaObjs = sha1(str);
     ctx.body = {
+        str:str,
         appId:"wx2df0a9fe18f3cb02",
         timestamp:now,
         nonceStr:nonceStr,
