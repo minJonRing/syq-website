@@ -26,13 +26,15 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    ctx.body = {msg:token,data:data,str:str};
+    str = `jsapi_ticket=${token}&noncestr=${sj}&timestamp=${now}&url=http://mp.weixin.qq.com`
+
+    ctx.body = {msg:token,data:data,str:str,ctx:ctx};
 })
 
 function sj(){
     let arr = [0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f","g","h","i","j","k","l","n","m","o","p","q","r","s","t","u","v","w","x","y","z"],str = "";
     for(let i = 0; i < 16; i++){
-        let num = arr[Math.ceil(Math.random()*36)];
+        let num = arr[Math.floor(Math.random()*36)];
         str+=num;
     }
     return str;
