@@ -28,8 +28,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
         })
     })
     let nonceStr = sj();
-    let str = `jsapi_ticket=${token}&noncestr=${nonceStr}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
-    str = "jsapi_ticket=23_gAy2f5-7qIL6m8Tu883KR-f3XxE8trzeB0hbnD28KeUUazoM-Fblf7GwJ71HY-8jSj9RHNL6nqBuQK5DrpO&noncestr=mi27cfupfqhu5g0d&timestamp=1562077847&url=http://www.ojoojooo.com/app/wx/token";
+    let str = `jsapi_ticket=${data}&noncestr=${nonceStr}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
     let shaObjs = sha1(str);
     ctx.body = {
         str:str,
