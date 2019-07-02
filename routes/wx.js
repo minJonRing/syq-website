@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const request = require("request");
+const sha1 = require("sha1");
 
 
 let token = "", time = Date.now();
@@ -26,9 +27,15 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    str = `jsapi_ticket=${token}&noncestr=${sj()}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
-
-    ctx.body = {msg:token,data:data,str:str,ctx:ctx};
+    let nonceStr = sj();
+    let str = `jsapi_ticket=${token}&noncestr=${nonceStr}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
+    let shaObjs = sha1(str);
+    ctx.body = {
+        appId:"wx2df0a9fe18f3cb02",
+        timestamp:now,
+        nonceStr:nonceStr,
+        signature:shaObjs
+    };
 })
 
 function sj(){
