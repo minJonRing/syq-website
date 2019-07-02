@@ -26,6 +26,7 @@ const work = require('./routes/work')
 const news = require('./routes/news')
 const upload = require('./routes/upload')
 const config = require('./routes/config')
+const wx = require('./routes/wx')
 
 // error handler
 onerror(app)
@@ -69,6 +70,7 @@ app.use(work.routes(), index.allowedMethods())
 app.use(news.routes(), index.allowedMethods())
 app.use(upload.routes(), index.allowedMethods())
 app.use(config.routes(), index.allowedMethods())
+app.use(wx.routes(), index.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
