@@ -37,15 +37,26 @@ $.ajax({
             nonceStr: res.nonceStr, // 必填，生成签名的随机串
             signature: res.signature,// 必填，签名
             jsApiList: [
-                'updateAppMessageShareData'
+                'updateAppMessageShareData',
+                'updateTimelineShareData'
             ] // 必填，需要使用的JS接口列表
         });
+        
         wx.ready(function(){
+            let obj = {}
             wx.updateAppMessageShareData({
                 title: '分享练习', // 分享标题
                 desc: '第一次分享', // 分享描述
                 link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: 'http://www.bitone.com/template/1/default/_files/cn/img/our/img3.jpg', // 分享图标
+                imgUrl: 'http://www.ojoojooo.com/images/web/code.png', // 分享图标
+                success: function () {
+                // 设置成功
+                }
+            })
+            wx.updateTimelineShareData({ 
+                title: '分享练习', // 分享标题
+                link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: 'http://www.ojoojooo.com/images/web/code.png', // 分享图标
                 success: function () {
                 // 设置成功
                 }
