@@ -2,7 +2,7 @@ const router = require('koa-router')()
 const request = require("request");
 
 
-let token = "",time = Date.now();
+let token = "", time = Date.now();
 router.get("/app/wx/token",async(ctx, next)=>{
     let now = Date.now();
     if(!token || (now - time) > 7000*1000){
@@ -26,7 +26,16 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    ctx.body = {msg:token,data:data};
+    ctx.body = {msg:token,data:data,str:str};
 })
+
+function sj(){
+    let arr = [0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f","g","h","i","j","k","l","n","m","o","p","q","r","s","t","u","v","w","x","y","z"],str = "";
+    for(let i = 0; i < 16; i++){
+        let num = arr[Math.ceil(Math.random()*36)];
+        str+=num;
+    }
+    return str;
+}
 
 module.exports = router;
