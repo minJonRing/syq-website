@@ -26,7 +26,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    str = `jsapi_ticket=${token}&noncestr=${sj}&timestamp=${now}&url=http://mp.weixin.qq.com`
+    str = `jsapi_ticket=${token}&noncestr=${sj()}&timestamp=${now}&url=http://www.ojoojooo.com${ctx.originalUrl}`
 
     ctx.body = {msg:token,data:data,str:str,ctx:ctx};
 })
