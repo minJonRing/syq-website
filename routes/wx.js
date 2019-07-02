@@ -10,7 +10,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
             request("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx2df0a9fe18f3cb02&secret=fb964c9eeaa0895370ddeef2e59fb9d7",async(err,res,body)=>{
                 if(!err && res.statusCode == 200){
                     let token = JSON.parse(res.body)['access_token'];
-                    resolve(typeof token)
+                    resolve(token)
                 }
             })
         })
