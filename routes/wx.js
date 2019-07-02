@@ -25,7 +25,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
             }
         })
     })
-    ctx.body = {msg:token,data:data};
+    ctx.body = {msg:token,data:data,url:"https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+token+"&type=jsapi"};
 })
 
 module.exports = router;
