@@ -10,16 +10,16 @@ router.get("/app/wx/token",async(ctx, next)=>{
     let rootUrl = ctx.req.headers.referer;
     ctx.body = {};
     let now = Date.now();
-    // if(!token || (now - time) > 7000*1000){
+    if(!token || (now - time) > 7000*1000){
         token = await new Promise((resolve,reject)=>{
             request("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+wxid+"&secret="+secret,async(err,res,body)=>{
                 if(!err && res.statusCode == 200){
                     let token = JSON.parse(res.body)['access_token'];
-                    resolve(res)
+                    resolve(token)
                 }
             })
         })
-    // }
+    }
 
     const data = await new Promise((resolve,reject)=>{
         request("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+token+"&type=jsapi",async(err,res,body)=>{
