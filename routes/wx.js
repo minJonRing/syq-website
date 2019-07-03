@@ -4,13 +4,15 @@ const sha1 = require("sha1");
 
 
 let token = "", time = Date.now();
+let wxid = "wxa369ba840dd0d3ce";
+let secret = "ac7e618d9571dc631a9de467bcfff7b7";
 router.get("/app/wx/token",async(ctx, next)=>{
     let rootUrl = ctx.req.headers.referer;
     ctx.body = {};
     let now = Date.now();
     if(!token || (now - time) > 7000*1000){
         token = await new Promise((resolve,reject)=>{
-            request("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx2df0a9fe18f3cb02&secret=fb964c9eeaa0895370ddeef2e59fb9d7",async(err,res,body)=>{
+            request("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+wxid+"&secret="+secret,async(err,res,body)=>{
                 if(!err && res.statusCode == 200){
                     let token = JSON.parse(res.body)['access_token'];
                     resolve(token)
@@ -34,7 +36,7 @@ router.get("/app/wx/token",async(ctx, next)=>{
     let shaObjs = sha1(str);
     ctx.body = {
         str:ctx,
-        appId:"wx2df0a9fe18f3cb02",
+        appId:wxid,
         timestamp:now,
         nonceStr:nonceStr,
         signature:shaObjs
