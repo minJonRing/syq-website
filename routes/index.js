@@ -85,6 +85,12 @@ router.get('/app/h5', async (ctx, next) => {
     title: 'app'
   })
 })
+// 二维码测试
+router.get('/app/code', async (ctx, next) => {
+  await ctx.render('h5/code', {
+    title: 'app'
+  })
+})
 // 手机测试
 router.get('/app/can', async (ctx, next) => {
   await ctx.render('h5/canvas', {
