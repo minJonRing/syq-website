@@ -14,10 +14,10 @@ let config = {
     },
     p6: [
         [{
-            add: '/static/img/p6/at/1.png', isText: false, tel: "tel:15657162923",
+            add: 'http://www.hzsinq.com/static/img/p6/at/1.png', isText: false, tel: "tel:15657162923",
         },
         {
-            add: '/static/img/p6/at/info.png', isText: true, tel: "tel:15657162923", text: [
+            add: 'http://www.hzsinq.com/static/img/p6/at/info.png', isText: true, tel: "tel:15657162923", text: [
                 { name: "业态规划:", cont: "办公+商业" },
                 { name: "办公建面:", cont: "约6.1万方" },
                 { name: "单层建面:", cont: "约2100方" },
@@ -29,10 +29,10 @@ let config = {
         }
         ],
         [{
-            add: '/static/img/p6/jn/1.png', isText: false, tel: "tel:15088716743",
+            add: 'http://www.hzsinq.com/static/img/p6/jn/1.png', isText: false, tel: "tel:15088716743",
         },
         {
-            add: '/static/img/p6/jn/info.png', isText: true, tel: "tel:15088716743", text: [
+            add: 'http://www.hzsinq.com/static/img/p6/jn/info.png', isText: true, tel: "tel:15088716743", text: [
                 { name: "业态规划:", cont: "超甲级塔楼办公+甲级独栋办公+滨水商业" },
                 { name: "办公建面:", cont: "约5万方" },
                 { name: "单层建面:", cont: "约1580方（超甲级塔楼）" },
@@ -43,10 +43,10 @@ let config = {
         }
         ],
         [{
-            add: '/static/img/p6/kh/1.png', isText: false, tel: "tel:0571-28822255",
+            add: 'http://www.hzsinq.com/static/img/p6/kh/1.png', isText: false, tel: "tel:0571-28822255",
         },
         {
-            add: '/static/img/p6/kh/info.png', isText: true, tel: "tel:0571-28822255", text: [
+            add: 'http://www.hzsinq.com/static/img/p6/kh/info.png', isText: true, tel: "tel:0571-28822255", text: [
                 { name: "业态规划:", cont: "甲级办公,知识消费体验场,创新会议中心,文化剧院,美术展览馆" },
                 { name: "办公建面:", cont: "约22万方" },
                 { name: "单层建面:", cont: "一期办公面积约80-800平方米,二期办公面积约150-2000平方米" },
@@ -57,10 +57,10 @@ let config = {
         }
         ],
         [{
-            add: '/static/img/p6/lc/1.png', isText: false, tel: "tel:15990174232",
+            add: 'http://www.hzsinq.com/static/img/p6/lc/1.png', isText: false, tel: "tel:15990174232",
         },
         {
-            add: '/static/img/p6/lc/info.png', isText: true, tel: "tel:15990174232", text: [
+            add: 'http://www.hzsinq.com/static/img/p6/lc/info.png', isText: true, tel: "tel:15990174232", text: [
                 { name: "业态规划:", cont: "办公+商业+酒店+剧院" },
                 { name: "办公建面:", cont: "约5万方" },
                 { name: "单层建面:", cont: "约2500-4800方" },
@@ -72,10 +72,10 @@ let config = {
         }
         ],
         [{
-            add: '/static/img/p6/wl/1.png', isText: false, tel: "tel:15055308370",
+            add: 'http://www.hzsinq.com/static/img/p6/wl/1.png', isText: false, tel: "tel:15055308370",
         },
         {
-            add: '/static/img/p6/wl/info.png', isText: true, tel: "tel:15055308370", text: [
+            add: 'http://www.hzsinq.com/static/img/p6/wl/info.png', isText: true, tel: "tel:15055308370", text: [
                 { name: "业态规划:", cont: "办公+商业+文化" },
                 { name: "办公建面:", cont: "规划中，约16.6万方" },
                 { name: "单层建面:", cont: "约370-2000方" },
@@ -86,10 +86,10 @@ let config = {
         }
         ],
         [{
-            add: '/static/img/p6/yh/1.png', isText: false, tel: "tel:0571-88998899",
+            add: 'http://www.hzsinq.com/static/img/p6/yh/1.png', isText: false, tel: "tel:0571-88998899",
         },
         {
-            add: '/static/img/p6/yh/2.png', isText: false, tel: "tel:0571-88998899",
+            add: 'http://www.hzsinq.com/static/img/p6/yh/2.png', isText: false, tel: "tel:0571-88998899",
         },
         {
             add: '/static/img/p6/yh/info.png', isText: true, tel: "tel:0571-88998899", text: [
