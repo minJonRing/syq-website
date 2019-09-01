@@ -1,12 +1,94 @@
-html,body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 a {
-    outline: none;
-    text-decoration: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes float-wave1 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 10px);
+  }
+}
+@keyframes float-wave2 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 20px);
+  }
+}
+@keyframes float-wave3 {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 30px);
+  }
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0.4;
+    transform: scale(.9, .9)
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1)
+  }
+}
+
+@keyframes zoom-in-out {
+  from {
+    transform: scale(1.4, 1.4);
+  }
+  to {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+@keyframes touchmove-tip {
+  from {
+    transform: translateY(0);
+    opacity: .8;
+  }
+  to {
+    transform: translateY(-60%);
+    opacity: .4;
+  }
+}
+
+@keyframes light-running {
+  0% {
+    opacity: 0.9;
+    transform: scale(.7, 1)
+  }
+  30% {
+    opacity: .8;
+    transform: scale(.9, 1)
+  }
+  50% {
+    opacity: 1;
+    transform: scale(.8, 1)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1)
+  }
 }

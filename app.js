@@ -27,6 +27,7 @@ const news = require('./routes/news')
 const upload = require('./routes/upload')
 const config = require('./routes/config')
 const wx = require('./routes/wx')
+const download = require("./routes/download")
 
 // error handler
 onerror(app)
@@ -47,7 +48,9 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(range)
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(__dirname + '/public', {
+  maxage: 1000 * 60 * 60
+}))
 // app.use(staticCache(path.join(__dirname, '/public'), {
 //   maxAge: 365 * 24 * 60 * 60
 // }))
@@ -71,6 +74,7 @@ app.use(news.routes(), index.allowedMethods())
 app.use(upload.routes(), index.allowedMethods())
 app.use(config.routes(), index.allowedMethods())
 app.use(wx.routes(), index.allowedMethods())
+app.use(download.routes(), index.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

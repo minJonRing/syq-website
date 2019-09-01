@@ -91,6 +91,12 @@ router.get('/app/code', async (ctx, next) => {
     title: 'app'
   })
 })
+// 万科h5
+router.get('/app/vanke-h5', async (ctx, next) => {
+  await ctx.render('h5/vanke-h5', {
+    title: 'app'
+  })
+})
 // 手机测试
 router.get('/app/can', async (ctx, next) => {
   await ctx.render('h5/canvas', {

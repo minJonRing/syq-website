@@ -32,12 +32,13 @@ router.get("/app/wx/token",async(ctx, next)=>{
         })
     })
     let nonceStr = sj();
-    let str = `jsapi_ticket=${data}&noncestr=${nonceStr}&timestamp=${now}&url=${rootUrl}`
+    let timestamp = ~~(now / 1000)
+    let str = `jsapi_ticket=${data}&noncestr=${nonceStr}&timestamp=${timestamp}&url=${rootUrl}`
     let shaObjs = sha1(str);
     ctx.body = {
         str:[token,data,str],
         appId:wxid,
-        timestamp:now,
+        timestamp,
         nonceStr:nonceStr,
         signature:shaObjs
     };
